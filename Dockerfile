@@ -9,7 +9,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /app
 
-ENV PYTHONPATH="/app"
+ENV PYTHONPATH="/app/src"
 
 EXPOSE 8081
 
