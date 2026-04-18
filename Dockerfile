@@ -5,13 +5,11 @@ RUN apt-get update && apt-get install -y gcc g++ && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 
 COPY requirements.txt /app/
-
-RUN pip install --no-cache-dir -r requirements.txt && \
-    pip install --no-cache-dir --upgrade accelerate && \
-    pip uninstall -y transformers accelerate && \
-    pip install --no-cache-dir transformers accelerate
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /app
+
+ENV PYTHONPATH="/app"
 
 EXPOSE 8081
 
